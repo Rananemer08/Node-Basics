@@ -80,6 +80,12 @@ function quit(){
   console.log('Quitting now, goodbye!')
   process.exit();
 }
+/**
+ * 
+ *"help" provides information and assistance for using software or systems.
+ * 
+ */
+
 function help(){
   console.log('help command will help you to print help information.')
 }
