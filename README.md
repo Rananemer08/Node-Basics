@@ -86,7 +86,9 @@ If you haven't yet, now would be a good moment to push
 Now, we're going to grow the possibilities of the app a little.
 
 *note*: don't forget to commit after **each** step
-
+function hello(name){
+  console.log(`hello! ${name}`);
+}
 1. Make the "hello" command able to take an argument. That is, if I write "hello x", the answer should be "hello x!". If I write "hello batata", it should tell me "hello batata!".
   - <kbd>tip</kbd>: the function `onDataReceived` receives everything the user writes. Put a `console.log` at the top of the function and then test writing things in the running software to see how that works
   - <kbd>tip</kbd>: You're going to want to:
