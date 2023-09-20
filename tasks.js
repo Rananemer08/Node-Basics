@@ -56,7 +56,7 @@ function onDataReceived(text) {
   else if(txt === 'hello'){
     hello(text);
   }
-  else if(text=== 'help'){
+  else if(txt=== 'help'){
   help();
   }
 
@@ -112,7 +112,9 @@ function help(){
   console.log("quit:quits the application");
   console.log("help:prints this message");
   console.log("unknown command:prints this message");
- 
+  console.log(" hello:prints hello!");
+  console.log("hello_X:print hello X!");
+  
 }
 // The following line starts the application
 startApp("Rana Nemer");
