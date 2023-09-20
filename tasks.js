@@ -49,15 +49,15 @@ function startApp(name){
 // }
 function onDataReceived(text) {
   const txt =text.split(" ")[0].trim();
-  if (text === 'quit\n') {
+  if (text === 'quit\n'|| text === 'exit\n') {
     quit();
   }
   
   else if(txt === 'hello'){
     hello(text);
   }
-  else if(r === 'help'){
-  help(text);
+  else if(text=== 'help'){
+  help();
   }
 
   else{
@@ -92,7 +92,6 @@ function hello(text){
   console.log(text.replace('\n','!'));
 }
 
-
 /** 
  *
  * @returns {void}
@@ -108,7 +107,13 @@ function quit(){
  */
 
 function help(){
-  console.log('help command will help you to print help information.')
+  console.log('help command will help you to print help information.');
+  console.log("hello:prints hello!");
+  console.log("quit:quits the application");
+  console.log("help:prints this message");
+  console.log("unknown command:prints this message");
+ 
 }
 // The following line starts the application
-startApp("Rana Nemer")
+startApp("Rana Nemer");
+
