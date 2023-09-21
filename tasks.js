@@ -69,6 +69,9 @@ else if (txt === 'remove') {
   remove(text);
 
 }
+else if (txt === 'edit') {
+  edit(text);
+}
 
   else{
     unknownCommand(text);
@@ -111,6 +114,52 @@ function remove(text) {
       console.log(`Task ${index + 1} is removed.`);
     }
   }
+}
+
+
+// function edit(text) {
+//   const parts = text.split(" ");
+
+//   if (parts.length === 1) {
+//     console.log("Error: Please specify a task number and the new text for editing.");
+//     return;
+//   }
+
+//   if (parts[1] === "new" && parts.length === 2) {
+//     // Edit the last task
+//     tasks[tasks.length - 1] = "new text";
+//     console.log("Last task is updated to 'new text'.");
+//   } else if (!isNaN(parts[1]) && parts.length >= 3) {
+//     const taskIndex = parseInt(parts[1]) - 1;
+//     if (taskIndex >= 0 && taskIndex < tasks.length) {
+//       const newText = parts.slice(2).join(" ");
+//       tasks[taskIndex] = newText;
+//       console.log(`Task ${taskIndex + 1} is updated to '${newText}'.`);
+//     } else {
+//       console.log("Invalid task number. Please enter a valid task number.");
+//     }
+//   } else {
+//     console.log("Error: Invalid edit command format.");
+//   }
+// }
+function edit(text){
+  let text_edit=text.slice(4,text.length).trim();
+  let i=text.trim().split(" ")[1]-1;
+  let splited_text=text.slice(4,text.length).trim();
+  let new_text=text.slice(7,text.length)
+
+    if(text.trim().length==4){
+    console.log("Error, type a task  ");
+  }
+  else if(i>=0){
+tasks[i]=new_text.replace("\n","");
+console.log(`Task ${i+1} is edited `);
+
+}
+else{
+tasks[tasks.length-1]=splited_text;
+console.log(` The last task edited `);
+}
 }
 
 
