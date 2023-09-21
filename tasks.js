@@ -154,6 +154,9 @@ function help(){
   console.log("unknown command:prints this message");
   console.log(" hello:prints hello!");
   console.log("hello_X:print hello X!");
+  console.log("list: lists all tasks.");
+  console.log("add [task]: adds a new task to the task list.");
+  console.log("remove [task number]: removes a task from the task list by its number.");
   
 }
 // The following line starts the application
