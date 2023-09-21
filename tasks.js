@@ -97,19 +97,22 @@ function add(text){
 }
 //remove a task
 
-function remove(text){
-
-  if(text.trim().length==6){
+function remove(text) {
+  if (text.trim().length === 6) {
     tasks.pop();
-    console.log(" The Last element removed ")
-  }
-  else{
-    let index=text.slice(6,text.length).trim()-1;
-tasks.splice(index,1);
-console.log(`Task ${index+1}  is removed `)
+    console.log("The last element removed.");
+  } else {
+    let index = parseInt(text.slice(6, text.length).trim()) - 1;
 
+    if (isNaN(index) || index < 0 || index >= tasks.length) {
+      console.log("Invalid task number. Please enter a valid task number.");
+    } else {
+      tasks.splice(index, 1);
+      console.log(`Task ${index + 1} is removed.`);
+    }
+  }
 }
-}
+
 
 /**
  * prints "unknown command"
