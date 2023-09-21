@@ -59,6 +59,9 @@ function onDataReceived(text) {
   else if(txt=== 'help'){
   help();
   }
+  else if(txt === 'list'){
+     list();
+  }
 
   else{
     unknownCommand(text);
@@ -66,7 +69,14 @@ function onDataReceived(text) {
 }
 
 
+function list(){
+  let arr=["batata","tomato","onion","salt"];
 
+  for(let i =0; i<arr.length; i++){
+  
+    console.log(`${i+1} - [ ] ${arr[i]}`);
+  }
+}
 
 
 
