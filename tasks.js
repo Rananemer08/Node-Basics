@@ -63,7 +63,7 @@ function onDataReceived(text) {
      list();
   }
   else if (txt === 'add') {
-  addTask(text);
+  add(text);
 } 
 else if (txt === 'remove' || txt === 'remove1' || txt=== 'remove2') {
   removeTask(txt);
@@ -87,7 +87,14 @@ function list(){
   console.log(`${i+1} - [ ] ${tasks[i]}`)
  }
 }
-
+function add(text){
+  if(text.trim().length==3){
+    console.log("error, please add a task after using add command")
+  }
+  else{
+    tasks.push(text.slice(4,text.length).trim());
+  }
+}
 
 
 /**
