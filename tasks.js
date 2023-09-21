@@ -62,22 +62,31 @@ function onDataReceived(text) {
   else if(txt === 'list'){
      list();
   }
+  else if (txt === 'add') {
+  addTask(text);
+} 
+else if (txt === 'remove' || txt === 'remove1' || txt=== 'remove2') {
+  removeTask(txt);
+
+}
 
   else{
     unknownCommand(text);
   }
 }
 
+const tasks=[
+  "tomato",
+  "onions","potato","salt"
+   ]
+
+
 
 function list(){
-  let arr=["batata","tomato","onion","salt"];
-
-  for(let i =0; i<arr.length; i++){
-  
-    console.log(`${i+1} - [ ] ${arr[i]}`);
-  }
+ for (let i=0;i<tasks.length;i++) {
+  console.log(`${i+1} - [ ] ${tasks[i]}`)
+ }
 }
-
 
 
 
