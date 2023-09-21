@@ -252,7 +252,11 @@ function help(){
   console.log("list: lists all tasks.");
   console.log("add [task]: adds a new task to the task list.");
   console.log("remove [task number]: removes a task from the task list by its number.");
-  
+  console.log("edit [task number] [new text]: edits a task by its number.");
+  console.log("check [task number]: marks a task as done. Use 'check' followed by the task number.");
+  console.log("   Example: 'check 1' marks the first task as done.");
+  console.log("uncheck [task number]: marks a task as undone. Use 'uncheck' followed by the task number.");
+  console.log("   Example: 'uncheck 1' marks the first task as undone.");
 }
 // The following line starts the application
 startApp("Rana Nemer");
