@@ -72,6 +72,12 @@ else if (txt === 'remove') {
 else if (txt === 'edit') {
   edit(text);
 }
+else if(txt === 'check'){
+  check(text);
+}
+else if(txt === 'uncheck'){
+  uncheck(text);
+}
 
   else{
     unknownCommand(text);
@@ -79,15 +85,22 @@ else if (txt === 'edit') {
 }
 
 const tasks=[
-  "tomato",
-  "onions","potato","salt"
-   ]
+  // "tomato",
+  // "onions","potato","salt"
+  //  ]
+  {task:"tomato",done:true},
+  {task:"onions",done:false},
+  {task:"potato",done:true},
+  {task:"salt",done:false},
+]
+
 
 
 
 function list(){
  for (let i=0;i<tasks.length;i++) {
-  console.log(`${i+1} - [ ] ${tasks[i]}`)
+  // console.log(`${i+1} - [ ] ${tasks[i]}`)
+  console.log(`${i+1} - [${tasks[i].done? "✓":" "}] ${tasks[i].task}`)
  }
 }
 function add(text){
@@ -95,7 +108,9 @@ function add(text){
     console.log("error, please add a task after using add command")
   }
   else{
-    tasks.push(text.slice(4,text.length).trim());
+    //tasks.push(text.slice(4,text.length).trim());
+    tasks.push({task:text.slice(4,text.length).trim(),done:false});
+    console.log("Task aded succesfully")
   }
 }
 //remove a task
@@ -161,6 +176,34 @@ tasks[tasks.length-1]=splited_text;
 console.log(` The last task edited `);
 }
 }
+
+function check(text){
+  let index=text.slice(5,text.length).trim()-1;
+
+
+  if(index>=tasks.length || index<0){
+    console.log("Error, number of task doesn't exist")
+  }
+  else{
+tasks[index].done=true;
+console.log(`Task ${index+1} Checked succesfully`)
+
+}}
+
+
+
+function uncheck(text){
+  let index=text.slice(7,text.length).trim()-1;
+
+
+  if(index>=tasks.length || index<0){
+    console.log("Error, number of task does not exist")
+  }
+  else{
+tasks[index].done=false;
+console.log(`Task ${index+1} is  unchecked `)
+
+}}
 
 
 /**
