@@ -9,13 +9,29 @@
  * @param  {string} name the name of the app
  * @returns {void}
  */
-function startApp(name){
-  process.stdin.resume();
-  process.stdin.setEncoding('utf8');
-  process.stdin.on('data', onDataReceived);
-  console.log(`Welcome to ${name}'s application!`)
-  console.log("--------------------")
+
+const fs = require('fs');
+const filePath = process.argv[2]||'database.json';//json file path
+let task = [];
+if(!fs.existsSync(filePath)){
+  fs.writeFileSync(filePath, '[]', 'utf8');
 }
+
+function startApp(name) {
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Error reading file:', err);
+      return;
+    }
+    tasks = JSON.parse(data);
+    process.stdin.resume();
+    process.stdin.setEncoding('utf8');
+    process.stdin.on('data', onDataReceived);
+    console.log(`Welcome to ${name}'s application!`);
+    console.log("--------------------");
+  });
+}
+
 
 
 /**
@@ -231,10 +247,13 @@ function hello(text){
  *
  * @returns {void}
  */
-function quit(){
+function quit() {
+  const jsonData = JSON.stringify(tasks);
+  fs.writeFileSync(filePath, jsonData, 'utf8');
   console.log('Quitting now, goodbye!')
   process.exit();
 }
+
 /**
  * 
  *"help" provides information and assistance for using software or systems.
