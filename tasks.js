@@ -65,8 +65,8 @@ function onDataReceived(text) {
   else if (txt === 'add') {
   add(text);
 } 
-else if (txt === 'remove' || txt === 'remove1' || txt=== 'remove2') {
-  removeTask(txt);
+else if (txt === 'remove') {
+  remove(text);
 
 }
 
@@ -95,7 +95,21 @@ function add(text){
     tasks.push(text.slice(4,text.length).trim());
   }
 }
+//remove a task
 
+function remove(text){
+
+  if(text.trim().length==6){
+    tasks.pop();
+    console.log(" The Last element removed ")
+  }
+  else{
+    let index=text.slice(6,text.length).trim()-1;
+tasks.splice(index,1);
+console.log(`Task ${index+1}  is removed `)
+
+}
+}
 
 /**
  * prints "unknown command"
